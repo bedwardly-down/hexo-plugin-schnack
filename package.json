@@ -1,10 +1,16 @@
 {
   "name": "hexo-plugin-schnack",
   "version": "0.0.1",
-  "description": "Comment your Hexo posts using Schnack",
+  "description": "Plugin for adding the Schnack comment system to your Hexo Blog.",
   "main": "index.js",
-  "repository": "https://github.com/bedwardly-down/hexo-plugin-schnack",
-  "author": "Brandon D <social@brandongrows.me>",
+  "author": "Brandon D <bedwardly-down>",
   "license": "MIT",
-  "private": false
+  "homepage": "https://github.com/bedwardly-down/hexo-plugin-schnack",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bedwardly-down/hexo-plugin-schnack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bedwardly-down/hexo-plugin-schnack/issues"
+  }
 }
