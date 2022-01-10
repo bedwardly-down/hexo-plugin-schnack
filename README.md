@@ -39,7 +39,7 @@ Add these lines to `<blog folder>/theme/<your theme>/layout/_partial/article.ejs
 <% } %>
 ```
 
-*Note: some themes will already have most of this in their `article-footer` or `sidebar / widget` sections. Copy the `<div>` section exactly like this or Schnack will not appear on your blog. If you hit the <F12> key in your browser and see an Unhandled Exception null error in the console tab, you most likely have a typo in the div or your Schnack config section (look below).*
+*Note: some themes will already have most of this in their `article-footer` or `sidebar / widget` sections. Copy the `<div>` section exactly like this or Schnack will not appear on your blog. If you hit the `<F12>` key while in your browser and see an Unhandled Exception null error in the console tab, you most likely have a typo in the div or your Schnack config section (look below).*
 
 Grab Schnack from [here](https://schnack.cool/) and follow the instructions with some slight modifications:
 
