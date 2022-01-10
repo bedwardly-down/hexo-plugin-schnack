@@ -34,12 +34,12 @@ Add these lines to `<blog folder>/theme/<your theme>/layout/_partial/article.ejs
     <section id="comments" class="vcomment">
        <!-- Optional header that may or may not exist in your theme -->
        <%= __('comment') %>
-       <div class=config.schnack.target></div>
+       <div class="<%- config.schnack.target.replace('.','') %>"></div>
     </section>
 <% } %>
 ```
 
-*Note: some themes will already have most of this in their `article-footer` or `sidebar / widget` sections. The <div> part is required for your comments to show and if it appears anywhere strange, where you put this will most likely be the culprit.*
+*Note: some themes will already have most of this in their `article-footer` or `sidebar / widget` sections. Copy the `<div>` section exactly like this or Schnack will not appear on your blog. If you hit the <F12> key in your browser and see an Unhandled Exception null error in the console tab, you most likely have a typo in the div or your Schnack config section (look below).*
 
 Grab Schnack from [here](https://schnack.cool/) and follow the instructions with some slight modifications:
 
@@ -56,7 +56,7 @@ The minimum required in your `_config.yml`:
 schnack:
   enable: true
   host: <domain name of your Schnack instance>
-  target: <name your Schnack for the div earlier>
+  target: <this must begin with a `.` and be a string or you may error out>
 ```
 
 Advanced customizations:
@@ -64,12 +64,12 @@ Advanced customizations:
 ```
 schnack:
   slug: <probably won't need to change this>
-  partials: <all of these take strings and change what language and text is shown for every aspect of Schnack's client>
+  partials: <these are all strings and change what language/text is shown for every aspect of the web client>
     preview:
     edit:
     sendComment:
     cancel:
-    or: <not sure what this is actually for>
+    or: <not sure what this is for>
     mute:
     unmute:
     postComment:
