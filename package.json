@@ -12,5 +12,14 @@
   },
   "bugs": {
     "url": "https://github.com/bedwardly-down/hexo-plugin-schnack/issues"
-  }
+  },
+  "keywords": [
+    "hexo",
+    "comments",
+    "disqus",
+    "plugin",
+    "self-hosted",
+    "github",
+    "embedded"
+  ]
 }
