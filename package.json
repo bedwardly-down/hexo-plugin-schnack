@@ -1,6 +1,6 @@
 {
   "name": "hexo-plugin-schnack",
-  "version": "0.0.2",
+  "version": "1.0.0",
   "description": "Plugin for adding the Schnack comment system to your Hexo Blog.",
   "main": "index.js",
   "author": "Brandon D <bedwardly-down>",
