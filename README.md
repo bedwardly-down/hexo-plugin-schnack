@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to hexo-plugin-schnack 👋</h1>
 <p>
-  <img alt="Version" src="https://img.shields.io/badge/version-0.0.1-blue.svg?cacheSeconds=2592000" />
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.1-blue.svg?cacheSeconds=2592000" />
   <a href="https://github.com/bedwardly-down/hexo-plugin-schnack#readme" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
   </a>
@@ -32,7 +32,7 @@
 
 When you arrive at the plugins question, there is a bug where all plugins are checkmarked but won't install or configure correctly. Use the arrow keys to select the ones you wanna install and then hit the spacebar to select. You can always manually add more later but at least one OAUTH and notification one are required. All plugins are named `@schnack/plugin-<plugin name>`. See guide in next step for more info.
 
-5. Configure the rest following the [configuration guide\(https://schnack.cool/#configuration).
+5. Configure the rest following the [configuration guide\(https://schnack.cool/#configuration). You may want to set your `comments.db` and `session.db` files to a directory outside of your blog folder if you're using version control or add them to a `.gitignore` file. They will constantly be updating as your blog grows and you may not want to version control them.
 
 #### Important
 
@@ -92,7 +92,7 @@ All logs can be found under `~/.pm2/logs` and they are named well enough that yo
 
 10. If everything's working as intended, the logs shouldn't show any errors and the process should show that it's using memory. Hit `Q` to exit.
 
-11. Add pm2 to system startup: `pm2 startup`. It should print out a message telling you to use a command to add pm2 to your init system. Run it and you should be good to go.
+11. Add pm2 to system startup: `pm2 save && pm2 startup`. It should print out a message telling you to use a command to add pm2 to your init system. Run it and you should be good to go.
 
 ## Author
 
