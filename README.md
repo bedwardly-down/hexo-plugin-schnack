@@ -28,13 +28,13 @@
 
 4. Create a basic `schnack.json` config file using the create-schnack helper library, making sure you say `y` to the first question and answering each question to the best of your ability: `yarn exec create-schnack`
 
-# Important
+#### Important
 
 When you arrive at the plugins question, there is a bug where all plugins are checkmarked but won't install or configure correctly. Use the arrow keys to select the ones you wanna install and then hit the spacebar to select. You can always manually add more later but at least one OAUTH and notification one are required. All plugins are named `@schnack/plugin-<plugin name>`. See guide in next step for more info.
 
 5. Configure the rest following the [configuration guide\(https://schnack.cool/#configuration).
 
-# Important
+#### Important
 
 * `page_url` needs to be `<your blog url>/%SLUG%`
 * If you're running your site through a reverse proxy such as CloudFlare, you may have to use `http` instead of `https` for your urls. A possible workaround is downloading both your certificate and key files to a directory on the server that's outside of your blog folder and then telling schnack where to find them using the `ssl` configuration option.
@@ -49,7 +49,7 @@ schnack:
   host: <full url of your Schnack instance>
 ```
 
-# Advanced configuration options:
+#### Advanced configuration options:
 
 ```
 schnack:
@@ -72,7 +72,7 @@ schnack:
 
 If you ever want to use the defaults or start over, just remove or comment out anything under partials.
 
-# Optional but Recommended Steps
+### Optional but Recommended Steps
 
 7. Globally install the pm2 process manager and pm2-logrotate so you can monitor, run and keep local logs of schnack quickly and easily: `yarn global add pm2 pm2-logrotate`. Lograte's defaults are pretty sane but if you need to further tweak them, check [here](https://www.npmjs.com/package/pm2-logrotate).
 
