@@ -10,7 +10,7 @@ function buildJS(cfg) {
     '<script src="' +
     cfg.host + '/client.js"></script>' +
     '<script>' + 'new Schnack({ ' +
-    'target: \'' + (cfg.target || '.schnack') + '\', ' +
+    'target: \'' + '.schnack' + '\', ' +
     'slug: \'' + (cfg.slug || 'post-slug') + '\', ' +
     'host: \'' + (cfg.host || 'http://localhost:3000') + '\', ' +
     'partials: { ' +
