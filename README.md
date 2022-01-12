@@ -18,53 +18,43 @@
 
 ### ✨ [Demo](https://thearchival.one)
 
-## How to Install and Use
+## Installation
 
-Add to your hexo blog folder using either one of these (or your prefered methon):
+1. Enter your blog folder and install the plugin: `yarn add hexo-plugin-schnack`
 
-```sh
-yarn add hexo-plugin-schnack
-npm install hexo-plugin-schnack --save
-```
+2. Add `<div class="schnack"></div>` in the location you want your comments to show in `theme/<your theme>/layout/_partials/article.js` (usually will be under `article-footer` if you want comments to show under your posts). I would recommend wrapping it with `<% if (config.schnack.enable){ %>` and `<% } %>` so that you can easily disable in the future if needed.
 
-Add these lines to `<blog folder>/theme/<your theme>/layout/_partial/article.ejs` or your theme's equivalent:
+3. Add the schnack, create-schnack, and jst libraries: `yarn add schnack create-schnack jst`
 
-```html
-<% if (config.schnack.enable){ %>
-    <section id="comments" class="vcomment">
-       <!-- Optional header that may or may not exist in your theme -->
-       <%= __('comment') %>
-       <div class="<%- config.schnack.target.replace('.','') %>"></div>
-    </section>
-<% } %>
-```
+4. Create a basic `schnack.json` config file using the create-schnack helper library, making sure you say `y` to the first question and answering each question to the best of your ability: `yarn exec create-schnack`
 
-*Note: some themes will already have most of this in their `article-footer` or `sidebar / widget` sections. Copy the `<div>` section exactly like this or Schnack will not appear on your blog. If you hit the `<F12>` key while in your browser and see an Unhandled Exception null error in the console tab, you most likely have a typo in the div or your Schnack config section (look below).*
+# Important
 
-Grab Schnack from [here](https://schnack.cool/) and follow the instructions with some slight modifications:
+When you arrive at the plugins question, there is a bug where all plugins are checkmarked but won't install or configure correctly. Use the arrow keys to select the ones you wanna install and then hit the spacebar to select. You can always manually add more later but at least one OAUTH and notification one are required. All plugins are named `@schnack/plugin-<plugin name>`. See guide in next step for more info.
 
-* Create a `schnack.json` file instead of `config.json` (this changed a good while back but wasn't updated in the docs)
-* `page_url` needs to be `https://<your blog domain name>/%SLUG%` or your comments may not show up.
-* If you're running your site through a reverse proxy and or CloudFlare, you may have to use `http` instead of `https` for your urls. The Github has a possible workaround involving using local SSL certificates, but that's outside the scope of this project and doc
-* [PM2](https://pm2.keymetrics.io) is your friend if you need to have Schnack start at boot and run full time on your server
+5. Configure the rest following the [configuration guide\(https://schnack.cool/#configuration).
 
-## Configuration
+# Important
 
-The minimum required in your `_config.yml`:
+* `page_url` needs to be `<your blog url>/%SLUG%`
+* If you're running your site through a reverse proxy such as CloudFlare, you may have to use `http` instead of `https` for your urls. A possible workaround is downloading both your certificate and key files to a directory on the server that's outside of your blog folder and then telling schnack where to find them using the `ssl` configuration option.
+
+6. Test your config: `yarn exec schnack start`. If all goes well, it shouldn't crash or error out.
+
+7. Enable and configure schnack in your `_config.yml` file:
 
 ```
 schnack:
   enable: true
-  host: <domain name of your Schnack instance>
-  target: <this must begin with a `.` and be a string or you may error out>
+  host: <full url of your Schnack instance>
 ```
 
-Advanced customizations:
+# Advanced configuration options:
 
 ```
 schnack:
   slug: <probably won't need to change this>
-  partials: <these are all strings and change what language/text is shown for every aspect of the web client>
+  partials: <these are all strings and change what language/text is shown for every aspect of the web client; most should be self-explanatory>
     preview:
     edit:
     sendComment:
@@ -82,6 +72,28 @@ schnack:
 
 If you ever want to use the defaults or start over, just remove or comment out anything under partials.
 
+# Optional but Recommended Steps
+
+7. Globally install the pm2 process manager and pm2-logrotate so you can monitor, run and keep local logs of schnack quickly and easily: `yarn global add pm2 pm2-logrotate`. Lograte's defaults are pretty sane but if you need to further tweak them, check [here](https://www.npmjs.com/package/pm2-logrotate).
+
+All logs can be found under `~/.pm2/logs` and they are named well enough that you should be able to figure them out if you run into issues.
+
+8. Add `yarn exec schnack start` to your `package.json`:
+
+```
+"scripts": {
+    ...
+    "chat": "yarn exec schnack start"
+    ...
+}
+```
+
+9. Start schnack and monitor it with pm2: `pm2 start --name "<blog name> Schnack" 'yarn chat' && pm2 monit`
+
+10. If everything's working as intended, the logs shouldn't show any errors and the process should show that it's using memory. Hit `Q` to exit.
+
+11. Add pm2 to system startup: `pm2 startup`. It should print out a message telling you to use a command to add pm2 to your init system. Run it and you should be good to go.
+
 ## Author
 
 👤 **Brandon D <bedwardly-down>**
@@ -90,7 +102,7 @@ If you ever want to use the defaults or start over, just remove or comment out a
 
 ## 🤝 Contributing
 
-Contributions, issues, feature requests and feedback are welcome!<br />Feel free to check [issues page](https://github.com/bedwardly-down/hexo-plugin-schnack/issues). You can also take a look at the [contributing guide](https://github.com/bedwardly-down/hexo-plugin-schnack/blob/master/CONTRIBUTING.md).
+Contributions, issues, feature requests and feedback are welcome!<br />Feel free to check [issues page](https://github.com/bedwardly-down/hexo-plugin-schnack/issues) for plugin related ones or [schnack](https://github.com/schn4ck/schnack) for the rest.
 
 ## Show your support
 
