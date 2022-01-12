@@ -16,7 +16,7 @@
 
 ### 🏠 [Homepage](https://github.com/bedwardly-down/hexo-plugin-schnack)
 
-### ✨ [Demo](https://thearchival.one)
+### ✨ [Demo](https://thearchival.one/2021/12/08/Hello)
 
 ## Installation
 
@@ -32,7 +32,7 @@
 
 When you arrive at the plugins question, there is a bug where all plugins are checkmarked but won't install or configure correctly. Use the arrow keys to select the ones you wanna install and then hit the spacebar to select. You can always manually add more later but at least one OAUTH and notification one are required. All plugins are named `@schnack/plugin-<plugin name>`. See guide in next step for more info.
 
-5. Configure the rest following the [configuration guide\(https://schnack.cool/#configuration). You may want to set your `comments.db` and `session.db` files to a directory outside of your blog folder if you're using version control or add them to a `.gitignore` file. They will constantly be updating as your blog grows and you may not want to version control them.
+5. Configure the rest following the [configuration guide](https://schnack.cool/#configuration). You may want to set your `comments.db` and `session.db` files to a directory outside of your blog folder if you're using version control or add them to a `.gitignore` file. They will constantly be updating as your blog grows and you may not want to version control them.
 
 #### Important
 
